@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taha Delights</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+    body {
+      background: #fef9f3;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f1c40f;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+    nav ul li a:hover {
+      color: #f1c40f;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Banner */
+    .banner {
+  position: relative;
+  height: 85vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/banner.jpg') no-repeat center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    .banner h1 {
+      color: #fff;
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .banner p {
+      color: #f8f8f8;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #e67e22;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+      border: 2px solid #e67e22;
+    }
+    .btn:hover {
+      background: transparent;
+      color: #e67e22;
+    }
+
+    /* About Us */
+    .about {
+      display: flex;
+      gap: 40px;
+      padding: 80px 10%;
+      align-items: center;
+      background: #fff;
+    }
+    .about-image {
+      width: 50%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+    .about-content {
+      width: 50%;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #e67e22;
+    }
+    .about-content p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+    .about-btn {
+      margin-top: 15px;
+      padding: 12px 25px;
+      border: none;
+      background: #e67e22;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    .about-btn:hover {
+      background: #d35400;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Menu */
+    .menu {
+      padding: 80px 10%;
+      background: #f8f9fa;
+      text-align: center;
+    }
+    .menu .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .menu .section-title::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .menu-items {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .menu-item {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 350px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .menu-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    .menu-item h3 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+      font-size: 1.5rem;
+    }
+    .menu-item p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #666;
+    }
+    .menu-item span {
+      font-weight: bold;
+      color: #27ae60;
+      font-size: 1.2rem;
+    }
+
+    /* Contact */
+    .contact {
+      padding: 80px 10%;
+      display: flex;
+      gap: 50px;
+      background: #fff;
+    }
+    .contact-form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .form-group label {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    .form-control {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: #e67e22;
+      box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
+    }
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .submit-btn {
+      padding: 14px;
+      border: none;
+      background: #27ae60;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .submit-btn:hover {
+      background: #1e8449;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-info h2 {
+      margin-bottom: 25px;
+    }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .info-icon {
+      width: 40px;
+      height: 40px;
+      background: #e67e22;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+    .info-text {
+      flex: 1;
+    }
+    .info-text h4 {
+      margin-bottom: 5px;
+      color: #2c3e50;
+    }
+    .info-text p {
+      color: #666;
+    }
+
+    /* Signup */
+    .signup {
+      padding: 80px 10%;
+      background: #f8f9fa;
+    }
+    .signup h2 {
+      margin-bottom: 30px;
+      color: #3498db;
+      text-align: center;
+    }
+    .signup-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .signup-form .form-group {
+      margin-bottom: 15px;
+    }
+    .gender-group {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .gender-option {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .full-width {
+      grid-column: span 2;
+    }
+    .signup-btn {
+      grid-column: span 2;
+      padding: 15px;
+      border: none;
+      background: #3498db;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+    .signup-btn:hover {
+      background: #21618c;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      padding: 40px 0 20px;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 0 10% 30px;
+    }
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+    }
+    .footer-section h3 {
+      color: #f1c40f;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .footer-section h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #f1c40f;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .footer-links a:hover {
+      color: #f1c40f;
+      padding-left: 5px;
+    }
+    .social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .social a:hover {
+      background: #f1c40f;
+      transform: translateY(-5px);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 20px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 0 10%;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about, .contact {
+        flex-direction: column;
+      }
+      .about-image, .about-content, .contact-form, .contact-info {
+        width: 100%;
+      }
+      .menu-item {
+        width: 45%;
+      }
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 15px 20px;
+      }
+      nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .banner h1 {
+        font-size: 2.5rem;
+      }
+      .menu-item {
+        width: 100%;
+      }
+      .signup-form {
+        grid-template-columns: 1fr;
+      }
+      .full-width, .signup-btn {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <div class="logo-text">Taha Delights</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#signup">Signup</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="banner-content">
+      <h1>Welcome to Taha Delights</h1>
+      <p>Experience the finest culinary delights in a cozy atmosphere</p>
+      <a href="#menu" class="btn">Explore Our Menu</a>
+    </div>
+  </div>
+
+ <!-- About Us -->
+<section class="about" id="about">
+  <div class="about-image">
+    <img src="images/restaurant.jpg" alt="Restaurant Interior">
+  </div>
+  <div class="about-content">
+    <h2 class="section-title">About Us</h2>
+    <p>At Taha Delights, we bring you the best dining experience with delicious meals, cozy ambiance, and top-class service. Our chefs craft each dish with passion and the finest ingredients.</p>
+    <p>Whether it's a family dinner or a special event, we make every moment memorable with our exceptional cuisine and warm hospitality.</p>
+    <button class="about-btn">Read More</button>
+  </div>
+</section>
+<!-- Menu -->
+<section class="menu" id="menu">
+  <h2 class="section-title">Our Menu</h2>
+  <div class="menu-items">
+    
+    <div class="menu-item">
+      <img src="images/grilled.jpg" alt="Grilled Chicken" style="width:100%; border-radius:8px; margin-bottom:10px;">
+      <h3>Grilled Chicken</h3>
+      <p>Juicy grilled chicken served with fresh herbs and seasonal vegetables. Marinated in our special sauce for 24 hours.</p>
+      <span>1200</span>
+    </div>
+    
+    <div class="menu-item">
+      <img src="images/pasta.jpg" alt="Italian Pasta" style="width:100%; border-radius:8px; margin-bottom:10px;">
+      <h3>Italian Pasta</h3>
+      <p>Creamy pasta with parmesan and basil. Made with imported Italian pasta and fresh dairy products.</p>
+      <span>1500</span>
+    </div>
+    
+    <div class="menu-item">
+      <img src="images/cake.jpg" alt="Chocolate Cake" style="width:100%; border-radius:8px; margin-bottom:10px;">
+      <h3>Chocolate Cake</h3>
+      <p>Rich chocolate layered cake for dessert lovers. Topped with Belgian chocolate ganache.</p>
+      <span>800</span>
+    </div>
+    
+  </div>
+</section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <form class="contact-form">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Subject" required>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" placeholder="Your Message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+    <div class="contact-info">
+      <h2 class="section-title">Contact Information</h2>
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="info-text">
+          <h4>Address</h4>
+          <p>Kotlakhpat, Lahore</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="info-text">
+          <h4>Phone</h4>
+          <p>+923269807588</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="info-text">
+          <h4>Email</h4>
+          <p>info@tahadelights.com</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="info-text">
+          <h4>Opening Hours</h4>
+          <p>Monday-Sunday: 11am - 11pm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <section class="signup" id="signup">
+    <h2 class="section-title">Sign Up for Special Offers</h2>
+    <form class="signup-form">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="gender-group">
+          <div class="gender-option">
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+          </div>
+          <div class="gender-option">
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group full-width">
+        <label for="address">Address</label>
+        <textarea id="address" class="form-control" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="zip">ZIP Code</label>
+        <input type="text" id="zip" class="form-control" required>
+      </div>
+      <button type="submit" class="signup-btn">Sign Up Now</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>Taha Delights offers the best dining experience with delicious meals, cozy ambiance, and top-class service.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#signup">Signup</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Kotlakhpat, Lahore</p>
+        <p>+923269807588</p>
+        <p>info@tahadelights.com</p>
+        <div class="social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Taha Delights. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
